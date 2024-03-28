@@ -1,0 +1,83 @@
+<div id="login-box">
+  <form [formGroup]="registerForm" novalidate>
+    <div class="left">
+      <h1>Sign up</h1>
+
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        formControlName="userName"
+        required
+      />
+      <input
+        type="text"
+        name="email"
+        placeholder="E-mail"
+        formControlName="email"
+        required
+      />
+      <div class="password-field">
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+          type="{{ showPassword === false ? 'password' : 'text' }}"
+        />
+        <mat-icon
+          class="visibility-icon"
+          matSuffix
+          style="cursor: pointer"
+          (click)="toggleShowPassword()"
+        >
+          {{ !showPassword ? "visibility" : "visibility_off" }}
+        </mat-icon>
+      </div>
+
+      <div class="password-field">
+        <input
+          type="password"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          formControlName="confirmPassword"
+          required
+        />
+
+        <mat-icon
+          class="visibility-icon"
+          matSuffix
+          style="cursor: pointer"
+          (click)="toggleShowPassword()"
+        >
+          {{ !showPassword ? "visibility" : "visibility_off" }}
+        </mat-icon>
+      </div>
+
+      <div class="register-button">
+        <input
+          type="submit"
+          name="signup_submit"
+          value="Sign me up"
+          (click)="submitForm()"
+        />
+        <input
+          type="submit"
+          name="login_submit"
+          value="LogIn"
+          (click)="login()"
+        />
+      </div>
+    </div>
+  </form>
+
+  <div class="right">
+    <span class="loginwith">Sign in with<br />social network</span>
+
+    <button class="social-signin facebook">Log in with facebook</button>
+    <button class="social-signin twitter">Log in with Twitter</button>
+    <button class="social-signin google">Log in with Google+</button>
+  </div>
+  <div class="or">OR</div>
+</div>
